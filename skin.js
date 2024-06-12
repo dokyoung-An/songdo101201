@@ -1,7 +1,7 @@
 // Garden Gnome Software - Skin
 // Pano2VR 7.0.10/20025
 // Filename: ?? ?? ?? ????.ggsk
-// Generated 2024-06-12T14:42:47
+// Generated 2024-06-12T14:53:22
 
 function pano2vrSkin(player,base) {
 	player.addVariable('vis_floorplan', 2, false, { ignoreInState: 0  });
@@ -1632,6 +1632,9 @@ function pano2vrSkin(player,base) {
 			var flag=me._footer_bg.ggVisible;
 			me._footer_bg.style.transition='none';
 			me._footer_bg.style.visibility=((flag)&&(Number(me._footer_bg.style.opacity)>0||!me._footer_bg.style.opacity))?'inherit':'hidden';
+			me.__10.style.transition='none';
+			me.__10.style.visibility=(Number(me.__10.style.opacity)>0||!me.__10.style.opacity)?'inherit':'hidden';
+			me.__10.ggVisible=true;
 		}
 		me.__19.ggUpdatePosition=function (useTransition) {
 		}
@@ -1676,7 +1679,7 @@ function pano2vrSkin(player,base) {
 		el.className='ggskin ggskin_textdiv';
 		el.ggTextDiv=els;
 		el.ggId="Text 5";
-		el.ggDx=0;
+		el.ggDx=1;
 		el.ggDy=0;
 		el.ggParameter={ rx:0,ry:0,a:0,sx:1,sy:1,def:'' };
 		el.ggVisible=true;
@@ -1687,7 +1690,7 @@ function pano2vrSkin(player,base) {
 		hs+='color : rgba(255,255,255,1);';
 		hs+='cursor : pointer;';
 		hs+='height : 100%;';
-		hs+='left : calc(50% - ((100% + 0px) / 2) + 0px);';
+		hs+='left : calc(50% - ((100% + 0px) / 2) + 1px);';
 		hs+='position : absolute;';
 		hs+='top : calc(50% - ((100% + 0px) / 2) + 0px);';
 		hs+='visibility : inherit;';
@@ -4383,7 +4386,13 @@ function pano2vrSkin(player,base) {
 		}
 		me._external_2.onclick=function (e) {
 			player.openNext(player._(me.hotspot.url),"");
-			player.setVariableValue('vis_roomchoice', false);
+			skin.__10.ggVisible = !skin.__10.ggVisible;
+			var flag=skin.__10.ggVisible;
+			skin.__10.style.transition='none';
+			skin.__10.style.visibility=((flag)&&(Number(skin.__10.style.opacity)>0||!skin.__10.style.opacity))?'inherit':'hidden';
+			skin._footer_bg.style.transition='none';
+			skin._footer_bg.style.visibility=(Number(skin._footer_bg.style.opacity)>0||!skin._footer_bg.style.opacity)?'inherit':'hidden';
+			skin._footer_bg.ggVisible=true;
 		}
 		me._external_2.onmouseover=function (e) {
 			me.elementMouseOver['external_2']=true;
